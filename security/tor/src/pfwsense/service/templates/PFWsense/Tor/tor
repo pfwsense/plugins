@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.tor.general.enabled') and PFWsense.tor.general.enabled == '1' %}
+tor_setup="/usr/local/pfwsense/scripts/tor/setup.sh"
+tor_enable="YES"
+{% else %}
+tor_enable="NO"
+{% endif %}

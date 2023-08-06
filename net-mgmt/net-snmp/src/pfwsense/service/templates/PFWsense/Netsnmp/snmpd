@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.netsnmp.general.enabled') and PFWsense.netsnmp.general.enabled == '1' %}
+snmpd_setup="/usr/local/pfwsense/scripts/PFWsense/Netsnmp/setup.sh"
+snmpd_enable="YES"
+{% else %}
+snmpd_enable="NO"
+{% endif %}

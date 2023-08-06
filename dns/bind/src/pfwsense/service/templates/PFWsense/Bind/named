@@ -1,0 +1,14 @@
+{% if helpers.exists('PFWsense.bind.general.enabled') and PFWsense.bind.general.enabled == '1' %}
+{% if helpers.exists('PFWsense.bind.general.disablev6') and PFWsense.bind.general.disablev6 == '1' %}
+named_flags="-4"
+{% endif %}
+{% if helpers.exists('PFWsense.bind.dnsbl.enabled') and PFWsense.bind.dnsbl.enabled == '1' %}
+{% if helpers.exists('PFWsense.bind.dnsbl.type') and PFWsense.bind.dnsbl.type != '' %}
+named_dnsbl="{{ PFWsense.bind.dnsbl.type }}"
+{% endif %}
+{% endif %}
+named_setup="/usr/local/pfwsense/scripts/PFWsense/Bind/setup.sh"
+named_enable="YES"
+{% else %}
+named_enable="NO"
+{% endif %}

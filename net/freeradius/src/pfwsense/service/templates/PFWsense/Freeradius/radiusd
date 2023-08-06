@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.freeradius.general.enabled') and PFWsense.freeradius.general.enabled == '1' %}
+radiusd_setup="/usr/local/pfwsense/scripts/Freeradius/setup.sh"
+radiusd_enable="YES"
+{% else %}
+radiusd_enable="NO"
+{% endif %}

@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.Nut.general.enable') and PFWsense.Nut.general.enable == '1' %}
+nut_setup="/usr/local/pfwsense/scripts/PFWsense/Nut/setup.sh"
+nut_enable="YES"
+{% else %}
+nut_enable="NO"
+{% endif %}

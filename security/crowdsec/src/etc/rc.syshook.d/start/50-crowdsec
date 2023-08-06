@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# https://docs.pfwsense.org/development/backend/autorun.html
+
+/usr/local/pfwsense/scripts/PFWsense/CrowdSec/hub-upgrade.sh

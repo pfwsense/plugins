@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.lldpd.general.enabled') and PFWsense.lldpd.general.enabled == '1' %}
+lldpd_enable="YES"
+lldpd_flags="{% if helpers.exists('PFWsense.lldpd.general.cdp') and PFWsense.lldpd.general.cdp == '1' %}-c{% endif %}{% if helpers.exists('PFWsense.lldpd.general.fdp') and PFWsense.lldpd.general.fdp == '1' %} -f{% endif %}{% if helpers.exists('PFWsense.lldpd.general.edp') and PFWsense.lldpd.general.edp == '1' %} -e{% endif %}{% if helpers.exists('PFWsense.lldpd.general.sonmp') and PFWsense.lldpd.general.sonmp == '1' %} -s{% endif %}{% if helpers.exists('PFWsense.lldpd.general.interface') and PFWsense.lldpd.general.interface != '' %} -I {{ PFWsense.lldpd.general.interface }}{% endif %} -M 4"
+{% else %}
+lldpd_enable="NO"
+{% endif %}

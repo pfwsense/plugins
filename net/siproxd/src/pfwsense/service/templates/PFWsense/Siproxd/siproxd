@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.siproxd.general.enabled') and PFWsense.siproxd.general.enabled == '1' %}
+siproxd_setup="/usr/local/pfwsense/scripts/PFWsense/Siproxd/setup.sh"
+siproxd_enable="YES"
+{% else %}
+siproxd_enable="NO"
+{% endif %}

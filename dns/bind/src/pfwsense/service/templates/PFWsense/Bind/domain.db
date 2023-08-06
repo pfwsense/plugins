@@ -1,0 +1,17 @@
+{% if helpers.exists('PFWsense.bind.general.enabled') and PFWsense.bind.general.enabled == '1' %}
+{%   if helpers.exists('PFWsense.bind.domain.domains.domain') %}
+{%     for domaindb in helpers.toList('PFWsense.bind.domain.domains.domain') %}
+{%       if TARGET_FILTERS['PFWsense.bind.domain.domains.domain.' ~ loop.index0] or TARGET_FILTERS['PFWsense.bind.domain.domains.domain'] %}
+{%         if domaindb.enabled == '1' and domaindb.type == 'primary' %}
+$TTL {{ domaindb.ttl }}
+@       IN      SOA    {{ domaindb.dnsserver }}. {{ domaindb.mailadmin|replace('@', '.') }}. ( {{ domaindb.serial|trim }} {{ domaindb.refresh }} {{ domaindb.retry }} {{ domaindb.expire }} {{ domaindb.negative }} )
+{%           for record in helpers.sortDictList(PFWsense.bind.record.records.record, 'name', 'type' ) %}
+{%             if record.domain == domaindb['@uuid'] %}
+{{ record.name }}                {{ record.type }} {{ record.value }}
+{%             endif %}
+{%           endfor %}
+{%         endif %}
+{%       endif %}
+{%     endfor %}
+{%   endif %}
+{% endif %}

@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.redis.general.enabled') and PFWsense.redis.general.enabled == '1' %}
+redis_setup="/usr/local/pfwsense/scripts/redis/setup.sh"
+redis_enable="YES"
+{% else %}
+redis_enable="NO"
+{% endif %}

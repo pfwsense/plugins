@@ -1,0 +1,9 @@
+{% if helpers.exists('PFWsense.postfix.general.enabled') and PFWsense.postfix.general.enabled == '1' %}
+{%   if helpers.exists('PFWsense.postfix.sender.senders.sender') %}
+{%     for sender_list in helpers.toList('PFWsense.postfix.sender.senders.sender') %}
+{%       if sender_list.enabled == '1' %}
+{{ sender_list.address }} {{ sender_list.action }}
+{%       endif %}
+{%     endfor %}
+{%   endif %}
+{% endif %}

@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.collectd.general.enabled') and PFWsense.collectd.general.enabled == '1' %}
+collectd_setup="/usr/local/pfwsense/scripts/PFWsense/Collectd/setup.sh"
+collectd_enable="YES"
+{% else %}
+collectd_enable="NO"
+{% endif %}

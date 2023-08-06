@@ -1,0 +1,17 @@
+{% if helpers.exists('PFWsense.tayga.general.enabled') and PFWsense.tayga.general.enabled == '1' %}
+tayga_script="/usr/local/pfwsense/scripts/PFWsense/Tayga/setup.sh"
+tayga_enable="YES"
+tayga_v4address={{ PFWsense.tayga.general.v4address }}
+tayga_v4destination={{ PFWsense.tayga.general.v4destination }}
+tayga_v4pool={{ PFWsense.tayga.general.v4pool }}
+tayga_v6prefix={{ PFWsense.tayga.general.v6prefix }}
+tayga_v6address={{ PFWsense.tayga.general.v6address }}
+tayga_v6destination={{ PFWsense.tayga.general.v6destination }}
+{% if helpers.exists('PFWsense.tayga.general.v6routedisabled') and PFWsense.tayga.general.v6routedisabled == '1' %}
+tayga_v6routedisabled="YES"
+{% else %}
+tayga_v6routedisabled="NO"
+{% endif %}
+{% else %}
+tayga_enable="NO"
+{% endif %}

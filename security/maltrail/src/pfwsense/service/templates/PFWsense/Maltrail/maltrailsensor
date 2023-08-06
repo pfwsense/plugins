@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.maltrail.sensor.enabled') and PFWsense.maltrail.sensor.enabled == '1' %}
+maltrailsensor_setup="/usr/local/pfwsense/scripts/PFWsense/Maltrail/setup.sh"
+maltrailsensor_enable="YES"
+{% else %}
+maltrailsensor_enable="NO"
+{% endif %}

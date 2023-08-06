@@ -1,0 +1,14 @@
+{% if helpers.exists('PFWsense.dnscryptproxy.general.enabled') and PFWsense.dnscryptproxy.general.enabled == '1' %}
+dnscrypt_proxy_setup="/usr/local/pfwsense/scripts/PFWsense/Dnscryptproxy/setup.sh"
+dnscrypt_proxy_enable="YES"
+{%   if helpers.exists('PFWsense.dnscryptproxy.general.allowprivileged') and PFWsense.dnscryptproxy.general.allowprivileged == '1' %}
+dnscrypt_proxy_suexec="YES"
+{%   endif %}
+{%   if helpers.exists('PFWsense.dnscryptproxy.dnsbl.enabled') and PFWsense.dnscryptproxy.dnsbl.enabled == '1' %}
+{%     if helpers.exists('PFWsense.dnscryptproxy.dnsbl.type') and PFWsense.dnscryptproxy.dnsbl.type != '' %}
+dnscrypt_proxy_dnsbl="{{ PFWsense.dnscryptproxy.dnsbl.type }}"
+{%     endif %}
+{%   endif %}
+{% else %}
+dnscrypt_proxy_enable="NO"
+{% endif %}

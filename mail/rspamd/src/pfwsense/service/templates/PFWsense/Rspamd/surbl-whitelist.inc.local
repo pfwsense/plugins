@@ -1,0 +1,5 @@
+{% if helpers.exists('PFWsense.Rspamd.general.enabled') and PFWsense.Rspamd.general.enabled == '1' and helpers.exists('PFWsense.Rspamd.surbl.whitelist') and PFWsense.Rspamd.surbl.whitelist != '' %}
+{%   for host in PFWsense.Rspamd.surbl.whitelist.split(',') %}
+{{ host }}
+{%   endfor %}
+{% endif %}

@@ -1,0 +1,5 @@
+{% if helpers.exists('PFWsense.zabbixproxy.general.enabled') and PFWsense.zabbixproxy.general.enabled == '1' %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.encryption') and PFWsense.zabbixproxy.general.encryption == '1' %}
+{{ PFWsense.zabbixproxy.general.encryptionpsk }}
+{% endif %}
+{% endif %}

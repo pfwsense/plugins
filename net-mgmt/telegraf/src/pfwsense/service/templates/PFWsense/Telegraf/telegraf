@@ -1,0 +1,11 @@
+{% if helpers.exists('PFWsense.telegraf.general.enabled') and PFWsense.telegraf.general.enabled == '1' %}
+{%   if PFWsense.telegraf.general.wheelgroup == '1' %}
+telegraf_user="root"
+telegraf_group="wheel"
+{%   endif %}
+telegraf_setup="/usr/local/pfwsense/scripts/PFWsense/Telegraf/setup.sh"
+telegraf_enable="YES"
+telegraf_confdir="/usr/local/etc/telegraf.d"
+{% else %}
+telegraf_enable="NO"
+{% endif %}

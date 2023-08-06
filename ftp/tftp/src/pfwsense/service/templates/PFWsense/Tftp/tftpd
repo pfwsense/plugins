@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.tftp.general.enabled') and PFWsense.tftp.general.enabled == '1' %}
+tftpd_enable="YES"
+tftpd_flags="-s /usr/local/tftp -a {{ PFWsense.tftp.general.listen }}"
+{% else %}
+tftpd_enable="NO"
+{% endif %}

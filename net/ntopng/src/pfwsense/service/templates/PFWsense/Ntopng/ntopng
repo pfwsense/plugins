@@ -1,0 +1,7 @@
+{% if helpers.exists('PFWsense.ntopng.general.enabled') and PFWsense.ntopng.general.enabled == '1' %}
+ntopng_setup="/usr/local/pfwsense/scripts/PFWsense/Ntopng/setup.sh"
+ntopng_enable="YES"
+ntopng_flags="/usr/local/etc/ntopng.conf"
+{% else %}
+ntopng_enable="NO"
+{% endif %}

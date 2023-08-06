@@ -1,0 +1,9 @@
+{% if helpers.exists('PFWsense.postfix.general.enabled') and PFWsense.postfix.general.enabled == '1' %}
+{%   if helpers.exists('PFWsense.postfix.general.smtpauth_enabled') and PFWsense.postfix.general.smtpauth_enabled == '1' %}
+{%     if helpers.exists('PFWsense.postfix.general.smtpauth_user') and PFWsense.postfix.general.smtpauth_user != '' %}
+{%       if helpers.exists('PFWsense.postfix.general.smtpauth_password') and PFWsense.postfix.general.smtpauth_password != '' %}
+{{ PFWsense.postfix.general.relayhost }} {{ PFWsense.postfix.general.smtpauth_user }}:{{ PFWsense.postfix.general.smtpauth_password }}
+{%       endif %}
+{%     endif %}
+{%   endif %}
+{% endif %}

@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.chrony.general.enabled') and PFWsense.chrony.general.enabled == '1' %}
+chronyd_setup="/usr/local/pfwsense/scripts/PFWsense/Chrony/setup.sh"
+chronyd_enable="YES"
+{% else %}
+chronyd_enable="NO"
+{% endif %}

@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.Rspamd.general.enabled') and PFWsense.Rspamd.general.enabled == '1' %}
+rspamd_setup="/usr/local/pfwsense/scripts/rspamd/setup.sh"
+rspamd_enable="YES"
+{% else %}
+rspamd_enable="NO"
+{% endif %}

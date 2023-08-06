@@ -1,0 +1,2 @@
+nginx_setup="/usr/local/pfwsense/scripts/nginx/setup.php"
+nginx_enable="YES"

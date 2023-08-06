@@ -1,0 +1,93 @@
+{% if helpers.exists('PFWsense.zabbixproxy.general.enabled') and PFWsense.zabbixproxy.general.enabled == '1' %}
+
+{% if helpers.exists('PFWsense.zabbixproxy.general.proxymode') and PFWsense.zabbixproxy.general.proxymode == '1' %}
+ProxyMode=1
+{% else %}
+ProxyMode=0
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.remotecommands') and PFWsense.zabbixproxy.general.remotecommands == '1' %}
+EnableRemoteCommands=1
+{% else %}
+EnableRemoteCommands=0
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.server') and PFWsense.zabbixproxy.general.server != '' %}
+Server={{ PFWsense.zabbixproxy.general.server }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.serverport') and PFWsense.zabbixproxy.general.serverport != '' %}
+ServerPort={{ PFWsense.zabbixproxy.general.serverport }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.hostname') and PFWsense.zabbixproxy.general.hostname != '' %}
+Hostname={{ PFWsense.zabbixproxy.general.hostname }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.listenport') and PFWsense.zabbixproxy.general.listenport != '' %}
+ListenPort={{ PFWsense.zabbixproxy.general.listenport }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.sourceip') and PFWsense.zabbixproxy.general.sourceip != '' %}
+SourceIP={{ PFWsense.zabbixproxy.general.sourceip }}
+{% endif %}
+LogFile=/var/log/zabbix/zabbix_proxy.log
+PidFile=/var/run/zabbix/zabbix_proxy.pid
+DBName=/var/db/zabbix/%%PLUGIN_VARIANT%%_proxy.db
+{% if helpers.exists('PFWsense.zabbixproxy.general.proxyofflinebuffer') and PFWsense.zabbixproxy.general.proxyofflinebuffer != '' %}
+ProxyOfflineBuffer={{ PFWsense.zabbixproxy.general.proxyofflinebuffer }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.configfrequency') and PFWsense.zabbixproxy.general.configfrequency != '' %}
+ConfigFrequency={{ PFWsense.zabbixproxy.general.configfrequency }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.datasenderfrequency') and PFWsense.zabbixproxy.general.datasenderfrequency != '' %}
+DataSenderFrequency={{ PFWsense.zabbixproxy.general.datasenderfrequency }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.startpollers') and PFWsense.zabbixproxy.general.startpollers != '' %}
+StartPollers={{ PFWsense.zabbixproxy.general.startpollers }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.startipmipollers') and PFWsense.zabbixproxy.general.startipmipollers != '' %}
+StartIPMIPollers={{ PFWsense.zabbixproxy.general.startipmipollers }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.startpollersunreachable') and PFWsense.zabbixproxy.general.startpollersunreachable != '' %}
+StartPollersUnreachable={{ PFWsense.zabbixproxy.general.startpollersunreachable }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.starttrappers') and PFWsense.zabbixproxy.general.starttrappers != '' %}
+StartTrappers={{ PFWsense.zabbixproxy.general.starttrappers }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.startpingers') and PFWsense.zabbixproxy.general.startpingers != '' %}
+StartPingers={{ PFWsense.zabbixproxy.general.startpingers }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.startdiscoverers') and PFWsense.zabbixproxy.general.startdiscoverers != '' %}
+StartDiscoverers={{ PFWsense.zabbixproxy.general.startdiscoverers }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.startvmwarecollectors') and PFWsense.zabbixproxy.general.startvmwarecollectors != '' %}
+StartVMwareCollectors={{ PFWsense.zabbixproxy.general.startvmwarecollectors }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.starthttppollers') and PFWsense.zabbixproxy.general.starthttppollers != '' %}
+StartHTTPPollers={{ PFWsense.zabbixproxy.general.starthttppollers }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.listenip') and PFWsense.zabbixproxy.general.listenip != '' %}
+ListenIP={{ PFWsense.zabbixproxy.general.listenip }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.cachesize') and PFWsense.zabbixproxy.general.cachesize != '' %}
+CacheSize={{ PFWsense.zabbixproxy.general.cachesize }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.historycachesize') and PFWsense.zabbixproxy.general.historycachesize != '' %}
+HistoryCacheSize={{ PFWsense.zabbixproxy.general.historycachesize }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.historyindexcachesize') and PFWsense.zabbixproxy.general.historyindexcachesize != '' %}
+HistoryIndexCacheSize={{ PFWsense.zabbixproxy.general.historyindexcachesize }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.timeout') and PFWsense.zabbixproxy.general.timeout != '' %}
+Timeout={{ PFWsense.zabbixproxy.general.timeout }}
+{% endif %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.statsip') and PFWsense.zabbixproxy.general.statsip != '' %}
+StatsAllowedIP={{ PFWsense.zabbixproxy.general.statsip }}
+{% endif %}
+FpingLocation=/usr/local/sbin/fping
+Fping6Location=/usr/local/sbin/fping6
+{% if helpers.exists('PFWsense.zabbixproxy.general.encryption') and PFWsense.zabbixproxy.general.encryption == '1' %}
+{% if helpers.exists('PFWsense.zabbixproxy.general.proxymode') and PFWsense.zabbixproxy.general.proxymode == '1' %}
+TLSAccept=psk
+{% else %}
+TLSConnect=psk
+{% endif %}
+TLSPSKFile=/usr/local/etc/%%PLUGIN_VARIANT%%/zabbix_proxy.psk
+TLSPSKIdentity={{ PFWsense.zabbixproxy.general.encryptionidentity }}
+{% endif %}
+{% endif %}

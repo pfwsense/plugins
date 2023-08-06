@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.cicap.general.enabled') and PFWsense.cicap.general.enabled == '1' %}
+c_icap_setup="/usr/local/pfwsense/scripts/PFWsense/CICAP/setup.sh"
+c_icap_enable="YES"
+{% else %}
+c_icap_enable="NO"
+{% endif %}

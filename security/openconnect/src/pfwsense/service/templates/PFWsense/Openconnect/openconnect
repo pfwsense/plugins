@@ -1,0 +1,13 @@
+{% if helpers.exists('PFWsense.openconnect.general.enabled') and PFWsense.openconnect.general.enabled == '1' %}
+openconnect_enable="YES"
+openconnect_flags="-s /usr/local/pfwsense/scripts/PFWsense/Openconnect/vpnc.sh"
+{%   if helpers.exists('PFWsense.openconnect.general.server') and PFWsense.openconnect.general.server != '' %}
+{%     if helpers.exists('PFWsense.openconnect.general.user') and PFWsense.openconnect.general.user != '' %}
+{%       if helpers.exists('PFWsense.openconnect.general.password') and PFWsense.openconnect.general.password != '' %}
+openconnect_flags="${openconnect_flags} --config=/usr/local/etc/openconnect.conf {{ PFWsense.openconnect.general.server }}"
+{%       endif %}
+{%     endif %}
+{%   endif %}
+{% else %}
+openconnect_enable="NO"
+{% endif %}

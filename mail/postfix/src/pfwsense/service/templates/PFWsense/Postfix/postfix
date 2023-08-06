@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.postfix.general.enabled') and PFWsense.postfix.general.enabled == '1' %}
+postfix_setup="/usr/local/pfwsense/scripts/PFWsense/Postfix/setup.sh"
+postfix_enable="YES"
+{% else %}
+postfix_enable="NO"
+{% endif %}

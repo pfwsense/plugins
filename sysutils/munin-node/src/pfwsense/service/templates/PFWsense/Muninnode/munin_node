@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.muninnode.general.enabled') and PFWsense.muninnode.general.enabled == '1' %}
+munin_node_setup="/usr/local/pfwsense/scripts/PFWsense/Muninnode/setup.sh"
+munin_node_enable="YES"
+{% else %}
+munin_node_enable="NO"
+{% endif %}

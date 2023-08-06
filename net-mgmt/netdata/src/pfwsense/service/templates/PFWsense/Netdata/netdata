@@ -1,0 +1,6 @@
+{% if helpers.exists('PFWsense.netdata.general.enabled') and PFWsense.netdata.general.enabled == '1' %}
+netdata_setup="/usr/local/pfwsense/scripts/PFWsense/Netdata/setup.sh"
+netdata_enable="YES"
+{% else %}
+netdata_enable="NO"
+{% endif %}

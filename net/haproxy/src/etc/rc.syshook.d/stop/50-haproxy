@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/local/pfwsense/scripts/PFWsense/HAProxy/rc-wrapper.sh stop
